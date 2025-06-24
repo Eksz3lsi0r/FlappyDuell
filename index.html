@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Duell - Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="ui-overlay">
+            <!-- Connection Screen -->
+            <div id="connectionScreen" class="screen">
+                <h1>Flappy Duell</h1>
+                <div class="connection-status">
+                    <div class="spinner"></div>
+                    <p>Verbindung zum Server...</p>
+                </div>
+            </div>
+
+            <!-- Matchmaking Screen -->
+            <div id="matchmakingScreen" class="screen hidden">
+                <h1>Flappy Duell</h1>
+                <div class="matchmaking-status">
+                    <div class="spinner"></div>
+                    <p id="matchmakingText">Suche nach Gegner...</p>
+                </div>
+                <div class="player-info">
+                    <p>Du: <span id="playerName">Player</span></p>
+                </div>
+            </div>
+
+            <!-- Match Found Screen -->
+            <div id="matchFoundScreen" class="screen hidden">
+                <h2>Gegner gefunden!</h2>
+                <div class="vs-display">
+                    <div class="player-vs">
+                        <span id="player1Name">Du</span>
+                        <span class="vs-text">VS</span>
+                        <span id="player2Name">Gegner</span>
+                    </div>
+                </div>
+                <div id="countdownDisplay" class="countdown">3</div>
+            </div>
+
+            <!-- Game UI -->
+            <div id="gameUI" class="hidden">
+                <div class="scores-container">
+                    <div class="player-score">
+                        <span id="yourName">Du</span>
+                        <div id="yourScore">0</div>
+                    </div>
+                    <div class="vs-separator">VS</div>
+                    <div class="player-score opponent">
+                        <span id="opponentName">Gegner</span>
+                        <div id="opponentScore">0</div>
+                    </div>
+                </div>
+                <div class="connection-indicator" id="connectionStatus">
+                    <div class="connection-dot"></div>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="screen hidden">
+                <h2 id="gameResult">Spiel beendet!</h2>
+                <div class="final-scores">
+                    <div class="score-row">
+                        <span id="finalYourName">Du</span>
+                        <span id="finalYourScore">0</span>
+                    </div>
+                    <div class="score-row">
+                        <span id="finalOpponentName">Gegner</span>
+                        <span id="finalOpponentScore">0</span>
+                    </div>
+                </div>
+                <div class="game-over-buttons">
+                    <button id="rematchBtn">Rematch</button>
+                    <button id="newMatchBtn">Neuer Gegner</button>
+                </div>
+                <div id="rematchStatus" class="rematch-status hidden">
+                    <p>Warte auf Gegner...</p>
+                </div>
+            </div>
+
+            <!-- Disconnection Screen -->
+            <div id="disconnectionScreen" class="screen hidden">
+                <h2>Verbindung verloren</h2>
+                <p>Der Gegner hat das Spiel verlassen</p>
+                <button id="reconnectBtn">Neuen Gegner suchen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
